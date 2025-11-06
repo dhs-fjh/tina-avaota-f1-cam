@@ -81,12 +81,21 @@
 			no-map;
 		};
 
+		/*
 		size_pool {
 			reg = <0 0x82000000 0 0x01400000>;
 		};
 
 		linux,cma {
 			size = <0x0 0x400000>;
+		};*/
+		size_pool {
+        	reg = <0 0x82000000 0 0x01000000>;
+		};
+
+		
+		linux,cma {
+			size = <0x0 0x800000>;
 		};
 	};
 
@@ -126,6 +135,7 @@
 	};
 
 	heap_size_pool@0{
+		/*
 		compatible = "allwinner,size_pool";
 		heap-name = "size_pool";
 		heap-id = <0x7>;
@@ -134,6 +144,15 @@
 		heap-type = "ion_size_pool";
 		thrs = <100>;
 		sizes = <0 20480>;
+		fall_to_big_pool = <1>;*/
+		compatible = "allwinner,size_pool";
+		heap-name  = "size_pool";
+		heap-id    = <0x7>;
+		heap-base  = <0x82000000>;
+		heap-size  = <0x01000000>;
+		heap-type  = "ion_size_pool";
+		thrs = <512>;
+		sizes = <0 16384>;
 		fall_to_big_pool = <1>;
 	};
 
