@@ -82,6 +82,9 @@ openwrt/target/*
 !openwrt/target/v821
 openwrt/target/v821/*
 !openwrt/target/v821/v821-avaota_f1
+!openwrt/target/v821/v821-avaota_f1/busybox-init-base-files
+!openwrt/target/v821/v821-avaota_f1/busybox-init-base-files/etc
+!openwrt/target/v821/v821-avaota_f1/busybox-init-base-files/etc/init.d
 
 !openwrt/package
 openwrt/package/*
