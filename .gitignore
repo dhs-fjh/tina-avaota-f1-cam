@@ -85,7 +85,8 @@ openwrt/target/v821/*
 
 !openwrt/package
 openwrt/package/*
-!openwrt/package/user_app
+!openwrt/package/user_apps
+!openwrt/package/helloworld
 
 platform/*
 !platform/allwinner
@@ -103,8 +104,6 @@ platform/allwinner/eyesee-mpp/middleware/sun300iw1/sample/bin/*
 !platform/allwinner/eyesee-mpp/middleware/sun300iw1/sample/bin/*.conf
 
 
-prebuilt/*
-
 rtos/*
 !rtos/lichee
 rtos/lichee/*
@@ -118,6 +117,7 @@ rtos/lichee/rtos/projects/v821_e907/*
 
 tools/*
 
-out/*
+out/
+prebuilt/
 .disclaimer_accpet
 .buildconfig

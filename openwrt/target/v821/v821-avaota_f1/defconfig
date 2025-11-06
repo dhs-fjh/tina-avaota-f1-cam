@@ -3027,6 +3027,12 @@ CONFIG_LVGL8_USE_SUNXIFB_CACHE=y
 # end of Gui
 
 #
+# Hello World
+#
+CONFIG_PACKAGE_helloworld=y
+# end of Hello World
+
+#
 # Kernel modules
 #
 
