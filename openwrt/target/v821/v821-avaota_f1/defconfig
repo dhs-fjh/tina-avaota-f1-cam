@@ -2821,7 +2821,7 @@ CONFIG_mpp_sample_smartIPC_demo=y
 # CONFIG_mpp_sample_UILayer is not set
 # CONFIG_mpp_sample_vdec is not set
 # CONFIG_mpp_sample_venc is not set
-# CONFIG_mpp_sample_virvi is not set
+CONFIG_mpp_sample_virvi=y
 # CONFIG_mpp_sample_virvi2venc is not set
 # CONFIG_mpp_sample_virvi2venc2ce is not set
 # CONFIG_mpp_sample_twinchn_virvi2venc2ce is not set
