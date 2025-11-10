@@ -122,3 +122,5 @@ out/
 prebuilt/
 .disclaimer_accpet
 .buildconfig
+compile_commands.json
+.cache/
