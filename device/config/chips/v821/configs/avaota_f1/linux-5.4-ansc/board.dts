@@ -1050,3 +1050,71 @@ hold_time     : Set the hold time for the IR cut operation (in milliseconds)
 	cpu-supply = <&reg_vdd_cpu>;
 	operating-points-v2 = <&cpu_opp_table_vf0_1>;
 };
+
+&pio {
+	spi1_pins_default: spi1@0 {
+		pins = "PD1", "PD2", "PD3"; /* CS, SCK, SDA */
+		function = "spi1";
+		allwinner,drive = <3>;
+	};
+
+	spi1_pins_sleep: spi1@2 {
+		pins = "PD1", "PD2", "PD3";
+		function = "io_disabled";
+	};
+};
+
+&lcd_fb {
+	status = "okay";
+	port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		spi_panel0: endpoint@0 {
+			reg = <0>;
+			remote-endpoint = <&panel_st7789v_spi1>;
+		};
+	};
+};
+
+&spi1 {
+	pinctrl-0 = <&spi1_pins_default>;
+	pinctrl-1 = <&spi1_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	clock-frequency = <100000000>;
+	sunxi,spi-bus-mode = <SUNXI_SPI_BUS_MASTER>;
+	sunxi,spi-cs-mode = <SUNXI_SPI_CS_SOFT>;
+	status = "okay";
+
+	panel_st7789v_spi1: slave@0 {
+		device_type = "spi-panel";
+		compatible = "allwinner,spi-panel";
+		reg = <0x0>;
+		spi-max-frequency = <100000000>;
+		lcd_used = <1>;
+		lcd_driver_name = "st7789v";
+		lcd_if = <0>;
+		lcd_dbi_if = <0>;
+		lcd_data_speed = <48>;
+		lcd_x = <240>;
+		lcd_y = <240>;
+		lcd_pixel_fmt = <10>;
+		lcd_dbi_fmt = <2>;
+		lcd_rgb_order = <0>;
+		lcd_width = <60>;
+		lcd_height = <60>;
+		lcd_pwm_used = <0>;
+		lcd_pwm_ch = <6>;
+		lcd_pwm_freq = <5000>;
+		lcd_pwm_pol = <1>;
+		lcd_frm = <1>;
+		lcd_gamma_en = <1>;
+		fb_buffer_num = <2>;
+		lcd_backlight = <100>;
+		lcd_fps = <60>;
+		lcd_dbi_te = <0>;
+		lcd_dbi_clk_mode = <0>;
+		lcd_spi_dc_pin = <&pio PD 5 GPIO_ACTIVE_LOW>;
+		lcd_gpio_0 = <&pio PD 4 GPIO_ACTIVE_LOW>;
+		status = "okay";
+	};
+};
